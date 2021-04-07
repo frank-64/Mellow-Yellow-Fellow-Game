@@ -57,7 +57,7 @@ public class Fellow : MonoBehaviour
         {
             pelletsEaten++;
             score += pointsPerPellet;
-            Debug.Log("The score is " + score);
+            //Debug.Log("The score is " + score);
         }
 
 
@@ -84,6 +84,14 @@ public class Fellow : MonoBehaviour
         {
             Debug.Log("You died!");
             gameObject.SetActive(false);
+        }
+
+        if (collision.gameObject.CompareTag("RightTeleporter"))
+        {
+            Debug.Log("Right teleporter entered!");
+        }else if (collision.gameObject.CompareTag("LeftTeleporter"))
+        {
+            Debug.Log("Left teleporter entered!");
         }
     }
 

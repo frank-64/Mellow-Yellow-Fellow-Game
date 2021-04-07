@@ -15,10 +15,7 @@ public class Ghost : MonoBehaviour
     Material normalMaterial;
 
     bool hiding = false;
-    
-    // Initial position of Ghost in Ghost house
-    Vector3 startPos;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +23,6 @@ public class Ghost : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.destination = PickRandomPosition();
         normalMaterial = GetComponent<Renderer>().material;
-        
-        //setting default position
-        startPos = transform.position;
     }
 
     Vector3 PickRandomPosition()
@@ -113,8 +107,9 @@ public class Ghost : MonoBehaviour
 
     public void KilledByFellow()
     {
+        Vector3 respawn = new Vector3(7.5f, 0.4f, 6.7f);
         hiding = false;
         GetComponent<Renderer>().material = normalMaterial;
-        transform.position = startPos;
+        agent.transform.position = respawn;
     }
 }
