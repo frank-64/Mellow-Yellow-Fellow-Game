@@ -42,7 +42,7 @@ public class Ghost : MonoBehaviour
     {
         if (player.PowerupActive())
         {
-            Debug.Log("Hiding from Player!");
+            //Debug.Log("Hiding from Player!");
             if (!hiding || agent.remainingDistance < 0.5)
             {
                 hiding = true;
@@ -52,7 +52,7 @@ public class Ghost : MonoBehaviour
         }
         else
         {
-            Debug.Log("Chasing Player!");
+            //Debug.Log("Chasing Player!");
             if (hiding)
             {
                 GetComponent<Renderer>().material = normalMaterial;
