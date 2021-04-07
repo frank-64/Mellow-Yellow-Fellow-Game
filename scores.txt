@@ -1,0 +1,10 @@
+Paul 6000
+Eli 6000
+Stuart 8500
+Barry 1000
+Ryan 6500	
+Karl 9050
+Izzie 7500
+Chris 8000
+Ash 8600
+Dan -1
