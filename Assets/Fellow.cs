@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fellow : MonoBehaviour
 {
-
     [SerializeField]
     float speed = 0.05f;
 
-    int score = 0;
+    public int score = 0;
     int pelletsEaten = 0;
     [SerializeField]
     int pointsPerPellet = 100;
@@ -57,7 +57,6 @@ public class Fellow : MonoBehaviour
         {
             pelletsEaten++;
             score += pointsPerPellet;
-            //Debug.Log("The score is " + score);
         }
 
 
@@ -100,4 +99,8 @@ public class Fellow : MonoBehaviour
         return pelletsEaten;
     }
 
+    public int GetScore()
+    {
+        return score;
+    }
 }
