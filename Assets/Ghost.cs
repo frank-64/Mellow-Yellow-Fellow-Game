@@ -6,14 +6,19 @@ using UnityEngine.AI;
 public class Ghost : MonoBehaviour
 {
     NavMeshAgent agent;
+    
     [SerializeField]
     Fellow player;
-
+    
     [SerializeField]
     Material scaredMaterial;
     Material normalMaterial;
 
     bool hiding = false;
+    
+    // Initial position of Ghost in Ghost house
+    Vector3 startPos;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +26,9 @@ public class Ghost : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.destination = PickRandomPosition();
         normalMaterial = GetComponent<Renderer>().material;
+        
+        //setting default position
+        startPos = transform.position;
     }
 
     Vector3 PickRandomPosition()
@@ -103,4 +111,10 @@ public class Ghost : MonoBehaviour
         return navHit.position;
     }
 
+    public void KilledByFellow()
+    {
+        hiding = false;
+        GetComponent<Renderer>().material = normalMaterial;
+        transform.position = startPos;
+    }
 }
