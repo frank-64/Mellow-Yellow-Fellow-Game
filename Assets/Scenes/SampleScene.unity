@@ -1977,6 +1977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  score: 0
   pointsPerPellet: 100
   powerupDuration: 10
 --- !u!1001 &170075259
@@ -2185,7 +2186,7 @@ GameObject:
   - component: {fileID: 190011659}
   m_Layer: 0
   m_Name: LeftTeleporter
-  m_TagString: Untagged
+  m_TagString: LeftTeleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2198,7 +2199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190011657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 7}
+  m_LocalPosition: {x: 0.6, y: 0.51, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 334688698}
@@ -2784,7 +2785,7 @@ GameObject:
   - component: {fileID: 271767024}
   m_Layer: 5
   m_Name: Title
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9854,6 +9855,7 @@ GameObject:
   - component: {fileID: 1074496869}
   - component: {fileID: 1074496868}
   - component: {fileID: 1074496870}
+  - component: {fileID: 1074496871}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -9913,7 +9915,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GAME
+  m_Text: 'Score: 0'
 --- !u!222 &1074496869
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10018,6 +10020,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1074496871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074496866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93ededb126fdd543b080ff8814a1e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1081090523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10706,7 +10720,7 @@ GameObject:
   - component: {fileID: 1105818900}
   m_Layer: 0
   m_Name: RightTeleporter
-  m_TagString: Untagged
+  m_TagString: RightTeleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10719,7 +10733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105818898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.5, y: 0, z: 7}
+  m_LocalPosition: {x: 14.51, y: 0.507, z: 6.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 334688698}

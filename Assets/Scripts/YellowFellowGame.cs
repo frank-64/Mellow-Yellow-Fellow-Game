@@ -14,9 +14,6 @@ public class YellowFellowGame : MonoBehaviour
     GameObject gameUI;
 
     [SerializeField]
-    GameObject winUI;
-
-    [SerializeField]
     Fellow playerObject;
 
     GameObject[] pellets;
@@ -26,7 +23,7 @@ public class YellowFellowGame : MonoBehaviour
     {
         InGame,
         MainMenu,
-        HighScores
+        HighScores,
     }
 
     GameMode gameMode = GameMode.MainMenu;

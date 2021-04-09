@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +13,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // try catch used to ignore null pointer which is given once the Fellow is killed by ghost
         try
         {
             GameObject fellowObject = GameObject.Find("Fellow");
