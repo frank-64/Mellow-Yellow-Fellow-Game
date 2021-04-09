@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Ghost : MonoBehaviour
 {
+    private Vector3 startPos;
     NavMeshAgent agent;
     
     [SerializeField]
@@ -22,6 +23,7 @@ public class Ghost : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.destination = PickRandomPosition();
+        startPos = agent.transform.position;
         normalMaterial = GetComponent<Renderer>().material;
     }
 
@@ -107,9 +109,8 @@ public class Ghost : MonoBehaviour
 
     public void KilledByFellow()
     {
-        Vector3 respawn = new Vector3(7.5f, 0.4f, 6.7f);
         hiding = false;
         GetComponent<Renderer>().material = normalMaterial;
-        agent.transform.position = respawn;
+        agent.transform.position = startPos;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Fellow : MonoBehaviour
 {
+
     [SerializeField]
     float speed = 0.05f;
 
@@ -23,6 +24,7 @@ public class Fellow : MonoBehaviour
     {
         
     }
+    
 
     void Update()
     {
@@ -81,7 +83,7 @@ public class Fellow : MonoBehaviour
             powerupTime = 0.0f;
         } else if (collision.gameObject.CompareTag("Ghost"))
         {
-            Debug.Log("You died!");
+            gameObject.GetComponent<AudioSource>().Play();
             gameObject.SetActive(false);
         }
 

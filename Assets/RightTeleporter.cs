@@ -20,6 +20,7 @@ public class RightTeleporter : MonoBehaviour
     {
         GameObject otherTeleporter = GameObject.Find("LeftTeleporter");
         Vector3 position = otherTeleporter.gameObject.transform.position;
+        
         // This ensures that the gameObject won't stay in a teleporting
         // loop as it teleports slighlty to the right of the left teleporter
         // this means it's outside the hit box and doesn't teleport again

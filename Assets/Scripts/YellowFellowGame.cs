@@ -18,6 +18,7 @@ public class YellowFellowGame : MonoBehaviour
 
     GameObject[] pellets;
 
+    private int count = 0;
 
     enum GameMode
     {
@@ -47,7 +48,7 @@ public class YellowFellowGame : MonoBehaviour
 
         if (playerObject.PelletsEaten() == pellets.Length)
         {
-            Debug.Log("Level Completed!");
+            gameObject.GetComponent<AudioSource>().Play();
         }
 
     }
