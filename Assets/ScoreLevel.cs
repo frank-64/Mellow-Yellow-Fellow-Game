@@ -9,6 +9,11 @@ public class ScoreLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         try
         {
             GameObject fellowObject = GameObject.Find("Fellow");
@@ -18,11 +23,5 @@ public class ScoreLevel : MonoBehaviour
         catch (Exception e)
         {
         } 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
