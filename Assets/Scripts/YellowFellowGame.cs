@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class YellowFellowGame : MonoBehaviour
 {
@@ -13,21 +15,28 @@ public class YellowFellowGame : MonoBehaviour
     [SerializeField]
     GameObject gameUI;
 
+    [SerializeField] 
+    GameObject winUI;
+
     [SerializeField]
     Fellow playerObject;
 
     GameObject[] pellets;
 
-    private int count = 0;
 
     enum GameMode
     {
         InGame,
         MainMenu,
         HighScores,
+        LevelWon
     }
 
     GameMode gameMode = GameMode.MainMenu;
+
+    private Boolean won;
+
+    public int level = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +57,12 @@ public class YellowFellowGame : MonoBehaviour
 
         if (playerObject.PelletsEaten() == pellets.Length)
         {
-            gameObject.GetComponent<AudioSource>().Play();
+            if (!won)
+            {
+                LevelComplete();
+                won = true;
+            }
         }
-
     }
 
     void UpdateMainMenu()
@@ -84,6 +96,7 @@ public class YellowFellowGame : MonoBehaviour
         mainMenuUI.gameObject.SetActive(true);
         highScoreUI.gameObject.SetActive(false);
         gameUI.gameObject.SetActive(false);
+        winUI.gameObject.SetActive(false);
     }
 
 
@@ -93,6 +106,7 @@ public class YellowFellowGame : MonoBehaviour
         mainMenuUI.gameObject.SetActive(false);
         highScoreUI.gameObject.SetActive(true);
         gameUI.gameObject.SetActive(false);
+        winUI.gameObject.SetActive(false);
     }
 
     void StartGame()
@@ -101,5 +115,15 @@ public class YellowFellowGame : MonoBehaviour
         mainMenuUI.gameObject.SetActive(false);
         highScoreUI.gameObject.SetActive(false);
         gameUI.gameObject.SetActive(true);
+        winUI.gameObject.SetActive(false);
+    }
+
+    void LevelComplete()
+    {
+        gameMode = GameMode.LevelWon;
+        mainMenuUI.gameObject.SetActive(false);
+        highScoreUI.gameObject.SetActive(false);
+        gameUI.gameObject.SetActive(false);
+        winUI.gameObject.SetActive(true);
     }
 }

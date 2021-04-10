@@ -86,14 +86,6 @@ public class Fellow : MonoBehaviour
             gameObject.GetComponent<AudioSource>().Play();
             gameObject.SetActive(false);
         }
-
-        if (collision.gameObject.CompareTag("RightTeleporter"))
-        {
-            Debug.Log("Right teleporter entered!");
-        }else if (collision.gameObject.CompareTag("LeftTeleporter"))
-        {
-            Debug.Log("Left teleporter entered!");
-        }
     }
 
     public int PelletsEaten()

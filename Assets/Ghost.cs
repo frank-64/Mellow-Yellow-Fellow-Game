@@ -110,7 +110,8 @@ public class Ghost : MonoBehaviour
     public void KilledByFellow()
     {
         hiding = false;
-        GetComponent<Renderer>().material = normalMaterial;
         agent.transform.position = startPos;
+        GetComponent<Renderer>().material = normalMaterial;
+        
     }
 }
