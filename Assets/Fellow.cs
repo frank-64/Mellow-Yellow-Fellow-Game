@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class Fellow : MonoBehaviour
 {
-
+    [SerializeField]
+    Vector3 ghostStartPos = new Vector3(7.56599f, 0.8f, 8.028f);
+    
+    private Vector3 startPos;
+    
     [SerializeField]
     float speed = 0.05f;
 
@@ -19,10 +23,11 @@ public class Fellow : MonoBehaviour
 
     float powerupTime = 0.0f; // How long i left on the current powerup
 
+    private int lives = 3;
     // Start is called before the first frame update
     void Start()
     {
-        
+        startPos = gameObject.transform.position;
     }
     
 
@@ -83,8 +88,23 @@ public class Fellow : MonoBehaviour
             powerupTime = 0.0f;
         } else if (collision.gameObject.CompareTag("Ghost"))
         {
-            gameObject.GetComponent<AudioSource>().Play();
-            gameObject.SetActive(false);
+            if (lives == 0)
+            {
+                Debug.Log("You died!");
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("Life used!");
+                lives--;
+                gameObject.transform.position = startPos;
+
+                GameObject ghostGameObject = GameObject.Find("Ghost");
+                ghostGameObject.transform.position = ghostStartPos;
+
+                GameObject heart = GameObject.FindGameObjectWithTag("Heart");
+                heart.SetActive(false);
+            }
         }
     }
 
