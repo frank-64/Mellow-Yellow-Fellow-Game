@@ -53,18 +53,25 @@ public class YellowFellowGame : MonoBehaviour
             case GameMode.MainMenu:     UpdateMainMenu(); break;
             case GameMode.HighScores:   UpdateHighScores(); break;
             case GameMode.InGame:       UpdateMainGame(); break;
+            case GameMode.LevelWon:     LevelSetup(); break;
         }
 
-        if (playerObject.PelletsEaten() == pellets.Length)
+        if (playerObject.PelletsEaten() == 5)
         {
             if (!won)
             {
+                Debug.Log("Won");
                 LevelComplete();
                 won = true;
             }
         }
     }
 
+    void UpdateMainGame()
+    {
+        
+    }
+    
     void UpdateMainMenu()
     {
         if(Input.GetKeyDown(KeyCode.Space))
@@ -85,14 +92,18 @@ public class YellowFellowGame : MonoBehaviour
         }
     }
 
-    void UpdateMainGame()
+
+    void LevelSetup()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            
+            StartGame();
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            StartMainMenu();
         }
     }
-
     void StartMainMenu()
     {
         gameMode                        = GameMode.MainMenu;
@@ -128,7 +139,5 @@ public class YellowFellowGame : MonoBehaviour
         highScoreUI.gameObject.SetActive(false);
         gameUI.gameObject.SetActive(false);
         winUI.gameObject.SetActive(true);
-
-        //LevelSetup();
     }
 }

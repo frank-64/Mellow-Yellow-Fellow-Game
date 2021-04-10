@@ -55,7 +55,7 @@ public class HighScoreTable : MonoBehaviour
 
     void CreateHighScoreText()
     {
-        for (int i = 0; i < allScores.Count; i++)
+        for (int i = 0; i <7; i++)
         {
             GameObject o = new GameObject();
             o.transform.parent = transform;
@@ -64,14 +64,19 @@ public class HighScoreTable : MonoBehaviour
             Text t      = o.AddComponent<Text>();
             t.text      = allScores[i].name + "\t\t" + allScores[i].score;
             t.font      = scoreFont;
-            t.fontSize  = 50;
+            t.fontSize  = 60;
+            t.alignment = TextAnchor.MiddleCenter;
+            
+            Outline outline = o.AddComponent<Outline>();
+            outline.effectDistance = new Vector2(3, -3);
+            
 
             o.transform.localPosition = new Vector3(0, -(i) * 6, 0);
 
             o.transform.localRotation = Quaternion.identity;
             o.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
-            o.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 100);
+            o.GetComponent<RectTransform>().sizeDelta = new Vector2(650, 100);
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -102,8 +103,14 @@ public class Fellow : MonoBehaviour
                 GameObject ghostGameObject = GameObject.Find("Ghost");
                 ghostGameObject.transform.position = ghostStartPos;
 
-                GameObject heart = GameObject.FindGameObjectWithTag("Heart");
-                heart.SetActive(false);
+                try
+                {
+                    GameObject heart = GameObject.FindGameObjectWithTag("Heart");
+                    heart.SetActive(false);
+                }
+                catch (Exception e)
+                {
+                }
             }
         }
     }
