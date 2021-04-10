@@ -87,7 +87,10 @@ public class YellowFellowGame : MonoBehaviour
 
     void UpdateMainGame()
     {
-       // playerObject
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            
+        }
     }
 
     void StartMainMenu()
@@ -125,5 +128,7 @@ public class YellowFellowGame : MonoBehaviour
         highScoreUI.gameObject.SetActive(false);
         gameUI.gameObject.SetActive(false);
         winUI.gameObject.SetActive(true);
+
+        //LevelSetup();
     }
 }

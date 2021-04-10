@@ -112,6 +112,5 @@ public class Ghost : MonoBehaviour
         hiding = false;
         agent.transform.position = startPos;
         GetComponent<Renderer>().material = normalMaterial;
-        
     }
 }

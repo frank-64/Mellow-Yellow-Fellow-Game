@@ -12,7 +12,6 @@ public class LevelCompleteTitle : MonoBehaviour
         GameObject game = GameObject.Find("Game");
         YellowFellowGame yellowFellowGame = game.GetComponent<YellowFellowGame>();
         int level = yellowFellowGame.level;
-        Debug.Log(level);
         GetComponent<Text>().text = "Level "+level+" complete!";
     }
 

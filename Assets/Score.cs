@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
         {
             GameObject fellowObject = GameObject.Find("Fellow");
             Fellow fellow = fellowObject.GetComponent<Fellow>();
-            GetComponent<Text>().text = "Score: " + fellow.score;
+            GetComponent<Text>().text = "Score \n" + fellow.score;
         }
         catch (Exception e)
         {
