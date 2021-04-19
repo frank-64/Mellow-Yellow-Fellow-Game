@@ -12,6 +12,7 @@ TagManager:
   - LeftTeleporter
   - RightTeleporter
   - Score
+  - Heart
   layers:
   - Default
   - TransparentFX

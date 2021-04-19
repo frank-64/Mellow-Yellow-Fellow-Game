@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class YellowFellowGame : MonoBehaviour
@@ -43,6 +44,7 @@ public class YellowFellowGame : MonoBehaviour
     {
         StartMainMenu();
         pellets = GameObject.FindGameObjectsWithTag("Pellet");
+        Debug.Log(pellets.Length);
     }
 
     // Update is called once per frame
@@ -53,14 +55,16 @@ public class YellowFellowGame : MonoBehaviour
             case GameMode.MainMenu:     UpdateMainMenu(); break;
             case GameMode.HighScores:   UpdateHighScores(); break;
             case GameMode.InGame:       UpdateMainGame(); break;
-            case GameMode.LevelWon:     LevelSetup(); break;
+            case GameMode.LevelWon:     UpdateWinMenu(); break;
         }
 
-        if (playerObject.PelletsEaten() == 5)
+        if (playerObject.PelletsEaten() == pellets.Length)
         {
             if (!won)
             {
-                Debug.Log("Won");
+                GameObject ghost = GameObject.Find("Ghost");
+                NavMeshAgent ghostAgent = ghost.GetComponent<NavMeshAgent>();
+                ghostAgent.speed = 0;
                 LevelComplete();
                 won = true;
             }
@@ -76,6 +80,7 @@ public class YellowFellowGame : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            SetupGame();
             StartGame();
         }
         else if (Input.GetKeyDown(KeyCode.Return))
@@ -93,7 +98,7 @@ public class YellowFellowGame : MonoBehaviour
     }
 
 
-    void LevelSetup()
+    void UpdateWinMenu()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -102,6 +107,22 @@ public class YellowFellowGame : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             StartMainMenu();
+        }
+    }
+
+
+    void SetupGame()
+    {
+        GameObject ghostGameObject = GameObject.Find("Ghost");
+        Ghost ghost = ghostGameObject.GetComponent<Ghost>();
+        
+        //ghost.Start();
+        playerObject.Start();
+
+        foreach (var pellet in pellets)
+        {
+            Pellet pelletObject = pellet.GetComponent<Pellet>();
+            pelletObject.Start();
         }
     }
     void StartMainMenu()

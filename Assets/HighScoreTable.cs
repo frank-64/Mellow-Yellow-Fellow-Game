@@ -68,10 +68,10 @@ public class HighScoreTable : MonoBehaviour
             t.alignment = TextAnchor.MiddleCenter;
             
             Outline outline = o.AddComponent<Outline>();
-            outline.effectDistance = new Vector2(3, -3);
+            outline.effectDistance = new Vector2(1, -1);
             
 
-            o.transform.localPosition = new Vector3(0, -(i) * 6, 0);
+            o.transform.localPosition = new Vector3(0, -(i) * 7, 0);
 
             o.transform.localRotation = Quaternion.identity;
             o.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);

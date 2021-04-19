@@ -25,8 +25,9 @@ public class Fellow : MonoBehaviour
     float powerupTime = 0.0f; // How long i left on the current powerup
 
     private int lives = 3;
+
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         startPos = gameObject.transform.position;
     }
@@ -57,6 +58,11 @@ public class Fellow : MonoBehaviour
 
 
         powerupTime = Mathf.Max(0.0f, powerupTime - Time.deltaTime);
+    }
+
+    public void Reset()
+    {
+        gameObject.transform.position = startPos;
     }
 
     void OnTriggerEnter(Collider other)
@@ -105,8 +111,8 @@ public class Fellow : MonoBehaviour
 
                 try
                 {
-                    GameObject heart = GameObject.FindGameObjectWithTag("Heart");
-                    heart.SetActive(false);
+                    GameObject heartObject = GameObject.FindGameObjectWithTag("Heart");
+                    heartObject.SetActive(false);
                 }
                 catch (Exception e)
                 {
