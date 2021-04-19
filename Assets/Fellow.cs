@@ -8,23 +8,23 @@ public class Fellow : MonoBehaviour
 {
     [SerializeField]
     Vector3 ghostStartPos = new Vector3(7.56599f, 0.8f, 8.028f);
-    
     private Vector3 startPos;
     
     [SerializeField]
     float speed = 0.05f;
-
-    public int score = 0;
-    int pelletsEaten = 0;
+    
     [SerializeField]
     int pointsPerPellet = 100;
+    public int score = 0;
+    int pelletsEaten = 0;
 
     [SerializeField]
     float powerupDuration = 10.0f; //How long the powerups should last
-
     float powerupTime = 0.0f; // How long i left on the current powerup
 
-    private int lives = 3;
+
+    public string name = "Frankie";
+    public int lives = 2;
 
     // Start is called before the first frame update
     public void Start()

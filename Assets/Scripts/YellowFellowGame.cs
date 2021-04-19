@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class YellowFellowGame : MonoBehaviour
 {
+    [SerializeField]
+    string highscoreFile = "scores.txt";
+    
     [SerializeField]
     GameObject highScoreUI;
 
@@ -36,6 +40,8 @@ public class YellowFellowGame : MonoBehaviour
     GameMode gameMode = GameMode.MainMenu;
 
     private Boolean won;
+    
+    private Boolean died;
 
     public int level = 1;
 
@@ -57,6 +63,7 @@ public class YellowFellowGame : MonoBehaviour
             case GameMode.InGame:       UpdateMainGame(); break;
             case GameMode.LevelWon:     UpdateWinMenu(); break;
         }
+        
 
         if (playerObject.PelletsEaten() == pellets.Length)
         {
@@ -69,6 +76,14 @@ public class YellowFellowGame : MonoBehaviour
                 won = true;
             }
         }
+        else if (playerObject.lives == 0 && !died)
+        {
+            GameObject ghost = GameObject.Find("Ghost");
+            NavMeshAgent ghostAgent = ghost.GetComponent<NavMeshAgent>();
+            ghostAgent.speed = 0;
+            StartMainMenu();
+            died = true;
+        }
     }
 
     void UpdateMainGame()
@@ -80,7 +95,7 @@ public class YellowFellowGame : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            SetupGame();
+            //SetupGame();
             StartGame();
         }
         else if (Input.GetKeyDown(KeyCode.Return))
@@ -95,6 +110,14 @@ public class YellowFellowGame : MonoBehaviour
         {
             StartMainMenu();
         }
+    }
+    
+    public void AddHighScore()
+    {
+        using (StreamWriter writer = new StreamWriter(highscoreFile))  
+        {  
+            writer.WriteLine(playerObject.name + " " + playerObject.score);
+        } 
     }
 
 
@@ -111,20 +134,21 @@ public class YellowFellowGame : MonoBehaviour
     }
 
 
-    void SetupGame()
-    {
-        GameObject ghostGameObject = GameObject.Find("Ghost");
-        Ghost ghost = ghostGameObject.GetComponent<Ghost>();
-        
-        //ghost.Start();
-        playerObject.Start();
-
-        foreach (var pellet in pellets)
-        {
-            Pellet pelletObject = pellet.GetComponent<Pellet>();
-            pelletObject.Start();
-        }
-    }
+    // void SetupGame()
+    // {
+    //     GameObject ghostGameObject = GameObject.Find("Ghost");
+    //     Ghost ghost = ghostGameObject.GetComponent<Ghost>();
+    //     
+    //     //ghost.Start();
+    //     playerObject.Start();
+    //
+    //     foreach (var pellet in pellets)
+    //     {
+    //         Pellet pelletObject = pellet.GetComponent<Pellet>();
+    //         pelletObject.Start();
+    //     }
+    // }
+    
     void StartMainMenu()
     {
         gameMode                        = GameMode.MainMenu;
