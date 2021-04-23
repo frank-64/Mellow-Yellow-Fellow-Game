@@ -81,6 +81,7 @@ public class YellowFellowGame : MonoBehaviour
             GameObject ghost = GameObject.Find("Ghost");
             NavMeshAgent ghostAgent = ghost.GetComponent<NavMeshAgent>();
             ghostAgent.speed = 0;
+            AddHighScore();
             StartMainMenu();
             died = true;
         }
@@ -114,10 +115,11 @@ public class YellowFellowGame : MonoBehaviour
     
     public void AddHighScore()
     {
-        using (StreamWriter writer = new StreamWriter(highscoreFile))  
-        {  
-            writer.WriteLine(playerObject.name + " " + playerObject.score);
-        } 
+        using (FileStream fs = new FileStream(highscoreFile,FileMode.Append, FileAccess.Write))
+        using (StreamWriter sw = new StreamWriter(fs))
+        {
+            sw.WriteLine(playerObject.name + " " + playerObject.score+"\n");
+        }
     }
 
 

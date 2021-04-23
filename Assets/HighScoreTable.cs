@@ -44,12 +44,14 @@ public class HighScoreTable : MonoBehaviour
             string text = null;
             while ((text = file.ReadLine()) != null)
             {
+                Debug.Log(text);
                 string[] splits = text.Split(' ');
                 HighScoreEntry entry;
                 entry.name = splits[0];
                 entry.score = int.Parse(splits[1]);
                 allScores.Add(entry);
             }
+            file.ReadLine();
         }
     }
 
