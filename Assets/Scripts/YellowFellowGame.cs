@@ -65,8 +65,7 @@ public class YellowFellowGame : MonoBehaviour
             case GameMode.LevelWon:     UpdateWinMenu(); break;
         }
         
-
-        if (playerObject.PelletsEaten() == pellets.Length)
+        if (playerObject.PelletsEaten() == pellets.Length*level)
         {
             if (!won)
             {
@@ -140,6 +139,7 @@ public class YellowFellowGame : MonoBehaviour
     void SetupGame()
     {
         level++;
+        won = false;
         GameObject ghostGameObject = GameObject.Find("Ghost");
         Ghost ghost = ghostGameObject.GetComponent<Ghost>();
         
