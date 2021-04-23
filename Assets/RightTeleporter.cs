@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RightTeleporter : MonoBehaviour
 {
+    [SerializeField]
+    LeftTeleporter leftTeleporter;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,7 @@ public class RightTeleporter : MonoBehaviour
     
     private void OnCollisionEnter(Collision other)
     {
-        GameObject otherTeleporter = GameObject.Find("LeftTeleporter");
-        Vector3 position = otherTeleporter.gameObject.transform.position;
+        Vector3 position = leftTeleporter.gameObject.transform.position;
         
         // This ensures that the gameObject won't stay in a teleporting
         // loop as it teleports slighlty to the right of the left teleporter

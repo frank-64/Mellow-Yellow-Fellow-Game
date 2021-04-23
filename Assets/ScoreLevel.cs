@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class ScoreLevel : MonoBehaviour
 {
+    [SerializeField] 
+    Fellow player;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +19,7 @@ public class ScoreLevel : MonoBehaviour
     {
         try
         {
-            GameObject fellowObject = GameObject.Find("Fellow");
-            Fellow fellow = fellowObject.GetComponent<Fellow>();
-            GetComponent<Text>().text = "Score: " + fellow.score;
+            GetComponent<Text>().text = "Score: " + player.score;
         }
         catch (Exception e)
         {

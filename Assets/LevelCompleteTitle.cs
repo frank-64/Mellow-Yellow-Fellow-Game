@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class LevelCompleteTitle : MonoBehaviour
 {
+    [SerializeField]
+    YellowFellowGame game;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject game = GameObject.Find("Game");
-        YellowFellowGame yellowFellowGame = game.GetComponent<YellowFellowGame>();
-        int level = yellowFellowGame.level;
+        int level = game.level;
         GetComponent<Text>().text = "Level "+level+" complete!";
     }
 
