@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -25,6 +26,17 @@ public class Ghost : MonoBehaviour
         agent.destination = PickRandomPosition();
         startPos = agent.transform.position;
         normalMaterial = GetComponent<Renderer>().material;
+        agent.speed = 3.5f;
+    }
+
+
+    public void Reset()
+    {
+        hiding = false;
+        agent.transform.position = startPos;
+        agent.destination = PickRandomPosition();
+        normalMaterial = GetComponent<Renderer>().material;
+        agent.speed = 3.5f;
     }
 
     Vector3 PickRandomPosition()

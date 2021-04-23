@@ -96,7 +96,6 @@ public class YellowFellowGame : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            //SetupGame();
             StartGame();
         }
         else if (Input.GetKeyDown(KeyCode.Return))
@@ -127,6 +126,7 @@ public class YellowFellowGame : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            //SetupGame();
             StartGame();
         }
         else if (Input.GetKeyDown(KeyCode.Return))
