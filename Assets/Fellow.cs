@@ -20,18 +20,22 @@ public class Fellow : MonoBehaviour
 
     [SerializeField]
     float powerupDuration = 10.0f; //How long the powerups should last
-    float powerupTime = 0.0f; // How long i left on the current powerup
+    float powerupTime = 0.0f; // How long left on the current powerup
 
 
     public string name = "Frankie";
     public int lives = 2;
 
     // Start is called before the first frame update
-    public void Start()
+    void Start()
     {
         startPos = gameObject.transform.position;
     }
-    
+
+    public void Reset()
+    {
+        gameObject.transform.position = startPos;
+    }
 
     void Update()
     {
@@ -58,11 +62,6 @@ public class Fellow : MonoBehaviour
 
 
         powerupTime = Mathf.Max(0.0f, powerupTime - Time.deltaTime);
-    }
-
-    public void Reset()
-    {
-        gameObject.transform.position = startPos;
     }
 
     void OnTriggerEnter(Collider other)

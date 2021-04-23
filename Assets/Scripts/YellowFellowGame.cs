@@ -27,7 +27,7 @@ public class YellowFellowGame : MonoBehaviour
     Fellow playerObject;
 
     GameObject[] pellets;
-
+    GameObject[] powerups;
 
     enum GameMode
     {
@@ -50,6 +50,7 @@ public class YellowFellowGame : MonoBehaviour
     {
         StartMainMenu();
         pellets = GameObject.FindGameObjectsWithTag("Pellet");
+        powerups = GameObject.FindGameObjectsWithTag("Powerup");
         Debug.Log(pellets.Length);
     }
 
@@ -126,7 +127,7 @@ public class YellowFellowGame : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            //SetupGame();
+            SetupGame();
             StartGame();
         }
         else if (Input.GetKeyDown(KeyCode.Return))
@@ -136,20 +137,27 @@ public class YellowFellowGame : MonoBehaviour
     }
 
 
-    // void SetupGame()
-    // {
-    //     GameObject ghostGameObject = GameObject.Find("Ghost");
-    //     Ghost ghost = ghostGameObject.GetComponent<Ghost>();
-    //     
-    //     //ghost.Start();
-    //     playerObject.Start();
-    //
-    //     foreach (var pellet in pellets)
-    //     {
-    //         Pellet pelletObject = pellet.GetComponent<Pellet>();
-    //         pelletObject.Start();
-    //     }
-    // }
+    void SetupGame()
+    {
+        level++;
+        GameObject ghostGameObject = GameObject.Find("Ghost");
+        Ghost ghost = ghostGameObject.GetComponent<Ghost>();
+        
+        ghost.Reset();
+        playerObject.Reset();
+    
+        foreach (var pellet in pellets)
+        {
+            Pellet pelletObject = pellet.GetComponent<Pellet>();
+            pelletObject.Start();
+        }
+
+        foreach (var powerup in powerups)
+        {
+            Powerup powerupObject = powerup.GetComponent<Powerup>();
+            powerupObject.Start();
+        }
+    }
     
     void StartMainMenu()
     {

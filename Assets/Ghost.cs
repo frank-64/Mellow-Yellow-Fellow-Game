@@ -24,18 +24,16 @@ public class Ghost : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.destination = PickRandomPosition();
-        startPos = agent.transform.position;
         normalMaterial = GetComponent<Renderer>().material;
-        agent.speed = 3.5f;
+        startPos = agent.transform.position;
     }
-
-
+    
     public void Reset()
     {
         hiding = false;
         agent.transform.position = startPos;
         agent.destination = PickRandomPosition();
-        normalMaterial = GetComponent<Renderer>().material;
+        GetComponent<Renderer>().material = normalMaterial;
         agent.speed = 3.5f;
     }
 
