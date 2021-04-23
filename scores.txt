@@ -6,5 +6,5 @@ Ryan 6500
 Karl 9050
 Izzie 7500
 Chris 8000
-Ash 8600
-Dan -1
+Frankie 500
+Frankie 1400

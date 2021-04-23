@@ -118,7 +118,7 @@ public class YellowFellowGame : MonoBehaviour
         using (FileStream fs = new FileStream(highscoreFile,FileMode.Append, FileAccess.Write))
         using (StreamWriter sw = new StreamWriter(fs))
         {
-            sw.WriteLine(playerObject.name + " " + playerObject.score+"\n");
+            sw.WriteLine(playerObject.name + " " + playerObject.score);
         }
     }
 
