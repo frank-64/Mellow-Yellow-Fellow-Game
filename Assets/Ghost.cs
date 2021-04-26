@@ -34,7 +34,14 @@ public class Ghost : MonoBehaviour
         agent.transform.position = startPos;
         agent.destination = PickRandomPosition();
         GetComponent<Renderer>().material = normalMaterial;
-        agent.speed = 3.5f;
+        if (gameOver)
+        {
+            agent.speed = 3.5f;
+        }
+        else
+        {
+            agent.speed = agent.speed * 1.05f;
+        }
     }
 
     Vector3 PickRandomPosition()
