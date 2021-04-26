@@ -18,6 +18,7 @@ public class Ghost : MonoBehaviour
 
     bool hiding = false;
 
+    float targetSpeed = 3.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +37,12 @@ public class Ghost : MonoBehaviour
         agent.destination = PickRandomPosition();
         if (gameOver)
         {
-            agent.speed = 3.5f;
+            agent.speed = targetSpeed;
         }
         else
         {
-            agent.speed = agent.speed + 0.25f;
+            targetSpeed = targetSpeed + 0.25f;
+            agent.speed = targetSpeed;
         }
     }
 
