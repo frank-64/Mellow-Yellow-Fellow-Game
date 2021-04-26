@@ -28,7 +28,7 @@ public class Ghost : MonoBehaviour
         startPos = agent.transform.position;
     }
     
-    public void Reset()
+    public void Reset(Boolean gameOver)
     {
         hiding = false;
         agent.transform.position = startPos;

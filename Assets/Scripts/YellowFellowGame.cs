@@ -96,6 +96,7 @@ public class YellowFellowGame : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            SetupGame(true);
             StartGame();
         }
         else if (Input.GetKeyDown(KeyCode.Return))
@@ -126,7 +127,7 @@ public class YellowFellowGame : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            SetupGame();
+            SetupGame(false);
             StartGame();
         }
         else if (Input.GetKeyDown(KeyCode.Return))
@@ -136,15 +137,27 @@ public class YellowFellowGame : MonoBehaviour
     }
 
 
-    void SetupGame()
+    void SetupGame(Boolean reset)
     {
-        level++;
-        won = false;
         GameObject ghostGameObject = GameObject.Find("Ghost");
         Ghost ghost = ghostGameObject.GetComponent<Ghost>();
         
-        ghost.Reset();
-        playerObject.Reset();
+        // Reset the game if the user goes back to the main menu, else advance to the next level.
+        if (reset)
+        {
+            died = false;
+            level = 1;
+            ghost.Reset(true);
+            playerObject.Reset(true);
+        }
+        else
+        {
+            level++;
+            won = false;
+            ghost.Reset(false);
+            playerObject.Reset(false);
+        }
+        
     
         foreach (var pellet in pellets)
         {

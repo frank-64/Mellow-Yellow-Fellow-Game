@@ -24,7 +24,14 @@ public class Fellow : MonoBehaviour
 
 
     public string name = "Frankie";
-    public int lives = 2;
+    public int lives = 3;
+
+    [SerializeField] 
+    GameObject heart1;
+    [SerializeField]
+    GameObject heart2;
+    [SerializeField]
+    GameObject heart3;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +39,21 @@ public class Fellow : MonoBehaviour
         startPos = gameObject.transform.position;
     }
 
-    public void Reset()
+    public void Reset(Boolean gameOver)
     {
         gameObject.transform.position = startPos;
+        if (gameOver)
+        {
+            score = 0;
+            lives = 3;
+            heart1.SetActive(true);
+            heart2.SetActive(true);
+            heart3.SetActive(true);
+        }
+        else
+        {
+            
+        }
     }
 
     void Update()
@@ -110,8 +129,16 @@ public class Fellow : MonoBehaviour
 
                 try
                 {
-                    GameObject heartObject = GameObject.FindGameObjectWithTag("Heart");
-                    heartObject.SetActive(false);
+                    if (heart1.activeInHierarchy)
+                    {
+                        heart1.SetActive(false);
+                    } else if (heart2.activeInHierarchy)
+                    {
+                        heart2.SetActive(false);
+                    }else if (heart3.activeInHierarchy)
+                    {
+                        heart3.SetActive(false);
+                    }
                 }
                 catch (Exception e)
                 {
