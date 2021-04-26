@@ -53,7 +53,7 @@ public class Fellow : MonoBehaviour
         }
         else
         {
-            powerupDuration = powerupDuration * 0.6f;
+            powerupDuration = powerupDuration * 0.8f;
         }
     }
 
