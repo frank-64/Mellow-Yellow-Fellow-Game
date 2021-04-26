@@ -40,7 +40,7 @@ public class Ghost : MonoBehaviour
         }
         else
         {
-            agent.speed = agent.speed * 1.05f;
+            agent.speed = agent.speed * 1.025f;
         }
     }
 
