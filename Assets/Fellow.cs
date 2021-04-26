@@ -42,6 +42,7 @@ public class Fellow : MonoBehaviour
     public void Reset(Boolean gameOver)
     {
         gameObject.transform.position = startPos;
+        powerupTime = 0;
         if (gameOver)
         {
             score = 0;
@@ -52,7 +53,7 @@ public class Fellow : MonoBehaviour
         }
         else
         {
-            
+            powerupDuration = powerupDuration * 0.6f;
         }
     }
 
