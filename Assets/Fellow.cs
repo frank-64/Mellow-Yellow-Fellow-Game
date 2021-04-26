@@ -116,12 +116,10 @@ public class Fellow : MonoBehaviour
         {
             if (lives == 0)
             {
-                Debug.Log("You died!");
                 gameObject.SetActive(false);
             }
             else
             {
-                Debug.Log("Life used!");
                 lives--;
                 gameObject.transform.position = startPos;
 

@@ -31,16 +31,16 @@ public class Ghost : MonoBehaviour
     public void Reset(Boolean gameOver)
     {
         hiding = false;
+        GetComponent<Renderer>().material = normalMaterial;
         agent.transform.position = startPos;
         agent.destination = PickRandomPosition();
-        GetComponent<Renderer>().material = normalMaterial;
         if (gameOver)
         {
             agent.speed = 3.5f;
         }
         else
         {
-            agent.speed = agent.speed * 1.025f;
+            agent.speed = agent.speed + 0.25f;
         }
     }
 

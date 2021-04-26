@@ -8,6 +8,15 @@ using UnityEngine.UI;
 
 public class YellowFellowGame : MonoBehaviour
 {
+    [SerializeField] 
+    Ghost ghost1;
+    [SerializeField] 
+    Ghost ghost2;
+    [SerializeField] 
+    Ghost ghost3;
+    [SerializeField] 
+    Ghost ghost4;
+    
     [SerializeField]
     string highscoreFile = "scores.txt";
     
@@ -51,7 +60,6 @@ public class YellowFellowGame : MonoBehaviour
         StartMainMenu();
         pellets = GameObject.FindGameObjectsWithTag("Pellet");
         powerups = GameObject.FindGameObjectsWithTag("Powerup");
-        Debug.Log(pellets.Length);
     }
 
     // Update is called once per frame
@@ -139,23 +147,33 @@ public class YellowFellowGame : MonoBehaviour
 
     void SetupGame(Boolean reset)
     {
-        GameObject ghostGameObject = GameObject.Find("Ghost");
-        Ghost ghost = ghostGameObject.GetComponent<Ghost>();
-        
+
         // Reset the game if the user goes back to the main menu, else advance to the next level.
         if (reset)
         {
             died = false;
             level = 1;
-            ghost.Reset(true);
+            ghost1.Reset(true);
             playerObject.Reset(true);
         }
         else
         {
             level++;
             won = false;
-            ghost.Reset(false);
             playerObject.Reset(false);
+
+            if (level == 3)
+            {
+                ghost2.gameObject.SetActive(true);
+            }else if (level == 5)
+            {
+                ghost3.gameObject.SetActive(true);
+            }else if (level == 7)
+            {
+                ghost4.gameObject.SetActive(true);
+            }
+
+            ghost1.Reset(false);
         }
         
     
