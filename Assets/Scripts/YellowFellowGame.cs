@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 public class YellowFellowGame : MonoBehaviour
 {
+    public AudioSource menuSound;
+    public AudioSource deathSound;
+    public AudioSource levelCompleteSound;
+    
     [SerializeField] 
     Ghost ghost1;
     [SerializeField] 
@@ -77,6 +81,7 @@ public class YellowFellowGame : MonoBehaviour
         {
             if (!won)
             {
+                levelCompleteSound.Play();
                 won = true;
                 ghost1.GetComponent<NavMeshAgent>().speed = 0;
                 ghost2.GetComponent<NavMeshAgent>().speed = 0;
@@ -87,6 +92,7 @@ public class YellowFellowGame : MonoBehaviour
         }
         else if (playerObject.lives == 0 && !died)
         {
+            deathSound.Play();
             playerObject.SetPelletsEaten(0);
             ghost1.GetComponent<NavMeshAgent>().speed = 0;
             ghost2.GetComponent<NavMeshAgent>().speed = 0;
@@ -95,32 +101,6 @@ public class YellowFellowGame : MonoBehaviour
             AddHighScore();
             StartMainMenu();
             died = true;
-        }
-    }
-
-    void UpdateMainGame()
-    {
-        
-    }
-    
-    void UpdateMainMenu()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            SetupGame(true);
-            StartGame();
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            StartHighScores();
-        }
-    }
-
-    void UpdateHighScores()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            StartMainMenu();
         }
     }
     
@@ -132,22 +112,6 @@ public class YellowFellowGame : MonoBehaviour
             sw.WriteLine(playerObject.name + " " + playerObject.score);
         }
     }
-
-
-    void UpdateWinMenu()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            SetupGame(false);
-            StartGame();
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            playerObject.SetPelletsEaten(0);
-            StartMainMenu();
-        }
-    }
-
 
     void SetupGame(Boolean reset)
     {
@@ -246,6 +210,53 @@ public class YellowFellowGame : MonoBehaviour
             powerupObject.Start();
         }
     }
+
+    void UpdateMainGame()
+    {
+        
+    }
+    
+    void UpdateMainMenu()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            menuSound.Play();
+            SetupGame(true);
+            StartGame();
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            menuSound.Play();
+            StartHighScores();
+        }
+    }
+
+    void UpdateHighScores()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            menuSound.Play();
+            StartMainMenu();
+        }
+    }
+
+
+    void UpdateWinMenu()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            menuSound.Play();
+            SetupGame(false);
+            StartGame();
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            menuSound.Play();
+            playerObject.SetPelletsEaten(0);
+            StartMainMenu();
+        }
+    }
+    
     
     void StartMainMenu()
     {

@@ -9754,7 +9754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b916b744dd048241a14a6c26a560a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
+  game: {fileID: 2024867684}
 --- !u!114 &1022132764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19157,7 +19157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a46b82716fc0b438666a2e02ee5514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
+  game: {fileID: 2024867684}
 --- !u!114 &1960477482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19580,6 +19580,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccdc9f7ae4b962548a41d6999bf74d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghost1: {fileID: 47970592}
+  ghost2: {fileID: 1972804871}
+  ghost3: {fileID: 2117111788}
+  ghost4: {fileID: 409854428}
   highscoreFile: scores.txt
   highScoreUI: {fileID: 259310840}
   mainMenuUI: {fileID: 1335532050}
