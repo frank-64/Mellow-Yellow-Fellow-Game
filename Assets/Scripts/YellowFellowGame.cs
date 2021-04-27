@@ -77,18 +77,16 @@ public class YellowFellowGame : MonoBehaviour
             case GameMode.LevelWon:     UpdateWinMenu(); break;
         }
         
-        if (playerObject.PelletsEaten() == pellets.Length*level)
+        if ((playerObject.PelletsEaten() == pellets.Length*level) && !won)
         {
-            if (!won)
-            {
-                levelCompleteSound.Play();
-                won = true;
-                ghost1.GetComponent<NavMeshAgent>().speed = 0;
-                ghost2.GetComponent<NavMeshAgent>().speed = 0;
-                ghost3.GetComponent<NavMeshAgent>().speed = 0;
-                ghost4.GetComponent<NavMeshAgent>().speed = 0;
-                LevelComplete();
-            }
+            levelCompleteSound.Play();
+            won = true;
+            ghost1.GetComponent<NavMeshAgent>().speed = 0;
+            ghost2.GetComponent<NavMeshAgent>().speed = 0;
+            ghost3.GetComponent<NavMeshAgent>().speed = 0;
+            ghost4.GetComponent<NavMeshAgent>().speed = 0;
+            LevelComplete();
+
         }
         else if (playerObject.lives == 0 && !died)
         {

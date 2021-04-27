@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Fellow : MonoBehaviour
 {
+    public AudioSource pelletCollectSound;
+    
     [SerializeField]
     Vector3 ghostStartPos = new Vector3(7.56599f, 0.8f, 8.028f);
     private Vector3 startPos;
@@ -89,6 +91,7 @@ public class Fellow : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pellet"))
         {
+            pelletCollectSound.Play();
             pelletsEaten++;
             score += pointsPerPellet;
         }
@@ -96,6 +99,7 @@ public class Fellow : MonoBehaviour
 
         if (other.gameObject.CompareTag("Powerup"))
         {
+            pelletCollectSound.Play();
             powerupTime = powerupDuration;
         }
 
