@@ -161,11 +161,16 @@ public class YellowFellowGame : MonoBehaviour
             {
                 ghost1.Reset(true);
                 ghost2.Reset(true);
+                
+                ghost2.gameObject.SetActive(false);
             }else if (level <7)
             {
                 ghost1.Reset(true);
                 ghost2.Reset(true);
                 ghost3.Reset(true);
+                
+                ghost2.gameObject.SetActive(false);
+                ghost3.gameObject.SetActive(false);
             }
             else
             {
@@ -173,6 +178,10 @@ public class YellowFellowGame : MonoBehaviour
                 ghost2.Reset(true);
                 ghost3.Reset(true);
                 ghost4.Reset(true);
+                
+                ghost2.gameObject.SetActive(false);
+                ghost3.gameObject.SetActive(false);
+                ghost4.gameObject.SetActive(false);
             }
             level = 1;
             
