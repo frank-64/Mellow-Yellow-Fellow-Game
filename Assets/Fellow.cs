@@ -41,6 +41,7 @@ public class Fellow : MonoBehaviour
 
     public void Reset(Boolean gameOver)
     {
+        gameObject.SetActive(true);
         gameObject.transform.position = startPos;
         powerupTime = 0;
         if (gameOver)
@@ -148,6 +149,11 @@ public class Fellow : MonoBehaviour
     public int PelletsEaten()
     {
         return pelletsEaten;
+    }
+
+    public void SetPelletsEaten(int pellets)
+    {
+        pelletsEaten = pellets;
     }
 
     public int GetScore()

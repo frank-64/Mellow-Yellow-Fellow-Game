@@ -77,18 +77,21 @@ public class YellowFellowGame : MonoBehaviour
         {
             if (!won)
             {
-                GameObject ghost = GameObject.Find("Ghost");
-                NavMeshAgent ghostAgent = ghost.GetComponent<NavMeshAgent>();
-                ghostAgent.speed = 0;
-                LevelComplete();
                 won = true;
+                ghost1.GetComponent<NavMeshAgent>().speed = 0;
+                ghost2.GetComponent<NavMeshAgent>().speed = 0;
+                ghost3.GetComponent<NavMeshAgent>().speed = 0;
+                ghost4.GetComponent<NavMeshAgent>().speed = 0;
+                LevelComplete();
             }
         }
         else if (playerObject.lives == 0 && !died)
         {
-            GameObject ghost = GameObject.Find("Ghost");
-            NavMeshAgent ghostAgent = ghost.GetComponent<NavMeshAgent>();
-            ghostAgent.speed = 0;
+            playerObject.SetPelletsEaten(0);
+            ghost1.GetComponent<NavMeshAgent>().speed = 0;
+            ghost2.GetComponent<NavMeshAgent>().speed = 0;
+            ghost3.GetComponent<NavMeshAgent>().speed = 0;
+            ghost4.GetComponent<NavMeshAgent>().speed = 0;
             AddHighScore();
             StartMainMenu();
             died = true;
@@ -140,6 +143,7 @@ public class YellowFellowGame : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
+            playerObject.SetPelletsEaten(0);
             StartMainMenu();
         }
     }
@@ -147,11 +151,11 @@ public class YellowFellowGame : MonoBehaviour
 
     void SetupGame(Boolean reset)
     {
-
         // Reset the game if the user goes back to the main menu, else advance to the next level.
         if (reset)
         {
             died = false;
+            won = false;
             playerObject.Reset(true);
             
             if (level < 3)
@@ -190,6 +194,7 @@ public class YellowFellowGame : MonoBehaviour
         {
             level++;
             won = false;
+            died = false;
             playerObject.Reset(false);
 
             if (level == 3)
