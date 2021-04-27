@@ -110,7 +110,6 @@ public class Fellow : MonoBehaviour
         if (collision.gameObject.CompareTag("Ghost") && PowerupActive())
         {
             collision.gameObject.GetComponent<Ghost>().KilledByFellow();
-            Debug.Log("You killed the ghost!");
             powerupTime = 0.0f;
         } else if (collision.gameObject.CompareTag("Ghost"))
         {

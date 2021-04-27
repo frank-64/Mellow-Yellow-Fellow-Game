@@ -21,7 +21,7 @@ public class Ghost : MonoBehaviour
     float targetSpeed = 3.5f;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.destination = PickRandomPosition();

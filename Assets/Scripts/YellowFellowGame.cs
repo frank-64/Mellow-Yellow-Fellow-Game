@@ -152,9 +152,30 @@ public class YellowFellowGame : MonoBehaviour
         if (reset)
         {
             died = false;
-            level = 1;
-            ghost1.Reset(true);
             playerObject.Reset(true);
+            
+            if (level < 3)
+            {
+                ghost1.Reset(true);
+            }else if (level <5)
+            {
+                ghost1.Reset(true);
+                ghost2.Reset(true);
+            }else if (level <7)
+            {
+                ghost1.Reset(true);
+                ghost2.Reset(true);
+                ghost3.Reset(true);
+            }
+            else
+            {
+                ghost1.Reset(true);
+                ghost2.Reset(true);
+                ghost3.Reset(true);
+                ghost4.Reset(true);
+            }
+            level = 1;
+            
         }
         else
         {
@@ -165,15 +186,37 @@ public class YellowFellowGame : MonoBehaviour
             if (level == 3)
             {
                 ghost2.gameObject.SetActive(true);
+                ghost2.Start();
             }else if (level == 5)
             {
                 ghost3.gameObject.SetActive(true);
+                ghost3.Start();
             }else if (level == 7)
             {
                 ghost4.gameObject.SetActive(true);
+                ghost4.Start();
             }
 
-            ghost1.Reset(false);
+            if (level < 3)
+            {
+                ghost1.Reset(false);
+            }else if (level <5)
+            {
+                ghost1.Reset(false);
+                ghost2.Reset(false);
+            }else if (level <7)
+            {
+                ghost1.Reset(false);
+                ghost2.Reset(false);
+                ghost3.Reset(false);
+            }
+            else
+            {
+                ghost1.Reset(false);
+                ghost2.Reset(false);
+                ghost3.Reset(false);
+                ghost4.Reset(false);
+            }
         }
         
     
