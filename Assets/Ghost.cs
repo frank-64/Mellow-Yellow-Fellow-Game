@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class Ghost : MonoBehaviour
 {
+    private Transform location;
     private Vector3 startPos;
     NavMeshAgent agent;
     
@@ -15,18 +16,22 @@ public class Ghost : MonoBehaviour
     [SerializeField]
     Material scaredMaterial;
     Material normalMaterial;
+    [SerializeField] 
+    Material respawnMaterial;
 
     bool hiding = false;
+    bool respawning = false;
 
     float targetSpeed = 3.5f;
 
     // Start is called before the first frame update
     public void Start()
     {
+        location = this.transform;
+        startPos = location.position;
         agent = GetComponent<NavMeshAgent>();
         agent.destination = PickRandomPosition();
         normalMaterial = GetComponent<Renderer>().material;
-        startPos = agent.transform.position;
     }
     
     public void Reset(Boolean gameOver)
@@ -82,7 +87,7 @@ public class Ghost : MonoBehaviour
                 hiding = false;
             }
 
-            if (CanSeePlayer())
+            if (CanSeePlayer() && !respawning)
             {
                 agent.destination = player.transform.position;
             }
@@ -92,6 +97,7 @@ public class Ghost : MonoBehaviour
                 {
                     agent.destination = PickRandomPosition();
                     hiding = false;
+                    respawning = false;
                     GetComponent<Renderer>().material = normalMaterial;
                 }
             }
@@ -129,7 +135,10 @@ public class Ghost : MonoBehaviour
     public void KilledByFellow()
     {
         hiding = false;
-        agent.transform.position = startPos;
-        GetComponent<Renderer>().material = normalMaterial;
+        respawning = true;
+        agent.destination = startPos;
+        GetComponent<Renderer>().material = respawnMaterial;
     }
+
+    public bool Respawning => respawning;
 }

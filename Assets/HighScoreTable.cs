@@ -70,6 +70,9 @@ public class HighScoreTable : MonoBehaviour
             
             Outline outline = o.AddComponent<Outline>();
             outline.effectDistance = new Vector2(1, -1);
+
+            Shadow shadow = o.AddComponent<Shadow>();
+            shadow.effectDistance = new Vector2(1, -1);
             
 
             o.transform.localPosition = new Vector3(0, -(i) * 7, 0);

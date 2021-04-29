@@ -112,39 +112,47 @@ public class Fellow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Ghost ghostObject = collision.gameObject.GetComponent<Ghost>();
+        
         if (collision.gameObject.CompareTag("Ghost") && PowerupActive())
         {
-            collision.gameObject.GetComponent<Ghost>().KilledByFellow();
-            powerupTime = 0.0f;
+            if (!ghostObject.Respawning)
+            {
+                collision.gameObject.GetComponent<Ghost>().KilledByFellow();
+                powerupTime = 0.0f;
+            }
         } else if (collision.gameObject.CompareTag("Ghost"))
         {
-            if (lives == 0)
+            if (!ghostObject.Respawning)
             {
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                lives--;
-                gameObject.transform.position = startPos;
-
-                GameObject ghostGameObject = GameObject.Find("Ghost");
-                ghostGameObject.transform.position = ghostStartPos;
-
-                try
+                if (lives == 0)
                 {
-                    if (heart1.activeInHierarchy)
-                    {
-                        heart1.SetActive(false);
-                    } else if (heart2.activeInHierarchy)
-                    {
-                        heart2.SetActive(false);
-                    }else if (heart3.activeInHierarchy)
-                    {
-                        heart3.SetActive(false);
-                    }
+                    gameObject.SetActive(false);
                 }
-                catch (Exception e)
+                else
                 {
+                    lives--;
+                    gameObject.transform.position = startPos;
+
+                    GameObject ghostGameObject = GameObject.Find("Ghost");
+                    ghostGameObject.transform.position = ghostStartPos;
+
+                    try
+                    {
+                        if (heart1.activeInHierarchy)
+                        {
+                            heart1.SetActive(false);
+                        } else if (heart2.activeInHierarchy)
+                        {
+                            heart2.SetActive(false);
+                        }else if (heart3.activeInHierarchy)
+                        {
+                            heart3.SetActive(false);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                    }
                 }
             }
         }
