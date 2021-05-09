@@ -85,6 +85,10 @@ public class Fellow : MonoBehaviour
 
 
         powerupTime = Mathf.Max(0.0f, powerupTime - Time.deltaTime);
+        if (powerupTime == 0)
+        {
+            pointsPerPellet = 100;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -100,6 +104,13 @@ public class Fellow : MonoBehaviour
         if (other.gameObject.CompareTag("Powerup"))
         {
             pelletCollectSound.Play();
+            powerupTime = powerupDuration;
+        }
+        
+        if (other.gameObject.CompareTag("DoublePoints"))
+        {
+            pelletCollectSound.Play();
+            pointsPerPellet = 200;
             powerupTime = powerupDuration;
         }
 

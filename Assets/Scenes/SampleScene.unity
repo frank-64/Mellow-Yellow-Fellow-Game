@@ -680,6 +680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 168952291}
   scaredMaterial: {fileID: 2100000, guid: cdf646a202781b34eb9a1991f26371d7, type: 2}
+  respawnMaterial: {fileID: 2100000, guid: 87e9637379d10334cb94aec8a01b7336, type: 2}
 --- !u!4 &47970598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1648785869318675021, guid: 420e9ccf035f7f944acc6a71eade7757, type: 3}
@@ -1253,7 +1254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_RootOrder
-      value: 119
+      value: 118
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2217,7 +2218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_RootOrder
-      value: 117
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4372,6 +4373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 168952291}
   scaredMaterial: {fileID: 2100000, guid: cdf646a202781b34eb9a1991f26371d7, type: 2}
+  respawnMaterial: {fileID: 2100000, guid: 87e9637379d10334cb94aec8a01b7336, type: 2}
 --- !u!1001 &410306681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10197,7 +10199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_RootOrder
-      value: 116
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10442,7 +10444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_RootOrder
-      value: 115
+      value: 114
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10807,7 +10809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_RootOrder
-      value: 120
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16865,6 +16867,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 124485033}
     m_Modifications:
+    - target: {fileID: 734817329772037454, guid: 420e9ccf035f7f944acc6a71eade7757, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 580afdf1ef2abe6409c3142dd338c1dd, type: 2}
     - target: {fileID: 1648785869318675021, guid: 420e9ccf035f7f944acc6a71eade7757, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -16994,7 +17000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_RootOrder
-      value: 118
+      value: 117
       objectReference: {fileID: 0}
     - target: {fileID: 7961625468778499362, guid: d0c3cb51e66eb9547a755d584bcf3a26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19382,6 +19388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 168952291}
   scaredMaterial: {fileID: 2100000, guid: cdf646a202781b34eb9a1991f26371d7, type: 2}
+  respawnMaterial: {fileID: 2100000, guid: 87e9637379d10334cb94aec8a01b7336, type: 2}
 --- !u!4 &1972804877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1648785869318675021, guid: 420e9ccf035f7f944acc6a71eade7757, type: 3}
@@ -20607,6 +20614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 168952291}
   scaredMaterial: {fileID: 2100000, guid: cdf646a202781b34eb9a1991f26371d7, type: 2}
+  respawnMaterial: {fileID: 2100000, guid: 87e9637379d10334cb94aec8a01b7336, type: 2}
 --- !u!4 &2117111794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1648785869318675021, guid: 420e9ccf035f7f944acc6a71eade7757, type: 3}

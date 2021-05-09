@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class YellowFellowGame : MonoBehaviour
@@ -86,6 +87,7 @@ public class YellowFellowGame : MonoBehaviour
             ghost3.GetComponent<NavMeshAgent>().speed = 0;
             ghost4.GetComponent<NavMeshAgent>().speed = 0;
             LevelComplete();
+            SceneManager.LoadScene("Cutscene1");
 
         }
         else if (playerObject.lives == 0 && !died)
