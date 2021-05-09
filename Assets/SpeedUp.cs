@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoublePoints : MonoBehaviour
+public class SpeedUp : MonoBehaviour
 {
     // Start is called before the first frame update
     public void Start()

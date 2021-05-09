@@ -24,6 +24,15 @@ public class Fellow : MonoBehaviour
     float powerupDuration = 10.0f; //How long the powerups should last
     float powerupTime = 0.0f; // How long left on the current powerup
 
+    [SerializeField] 
+    float doublePointDuration = 10.0f;
+    float doublePointsTime = 0.0f;
+    
+    [SerializeField] 
+    float speedUpDuration = 10.0f;
+    float speedUpTime = 0.0f;
+
+
 
     public string name = "Frankie";
     public int lives = 3;
@@ -46,6 +55,9 @@ public class Fellow : MonoBehaviour
         gameObject.SetActive(true);
         gameObject.transform.position = startPos;
         powerupTime = 0;
+        doublePointsTime = 0;
+        speedUpTime = 0;
+        pointsPerPellet = 100;
         if (gameOver)
         {
             score = 0;
@@ -85,9 +97,18 @@ public class Fellow : MonoBehaviour
 
 
         powerupTime = Mathf.Max(0.0f, powerupTime - Time.deltaTime);
-        if (powerupTime == 0)
+        doublePointsTime = Mathf.Max(0.0f, doublePointsTime - Time.deltaTime);
+        speedUpTime = Mathf.Max(0.0f, speedUpTime - Time.deltaTime);
+        
+
+        if (doublePointsTime == 0)
         {
             pointsPerPellet = 100;
+        }
+        
+        if (speedUpTime == 0)
+        {
+            speed = 5;
         }
     }
 
@@ -111,7 +132,13 @@ public class Fellow : MonoBehaviour
         {
             pelletCollectSound.Play();
             pointsPerPellet = 200;
-            powerupTime = powerupDuration;
+            doublePointsTime = doublePointDuration;
+        }
+        
+        if (other.gameObject.CompareTag("SpeedUp"))
+        {
+            speed = 7.5f;
+            speedUpTime = speedUpDuration;
         }
 
     }
