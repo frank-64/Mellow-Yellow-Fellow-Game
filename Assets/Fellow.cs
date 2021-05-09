@@ -22,14 +22,9 @@ public class Fellow : MonoBehaviour
 
     [SerializeField]
     float powerupDuration = 10.0f; //How long the powerups should last
-    float powerupTime = 0.0f; // How long left on the current powerup
-
-    [SerializeField] 
-    float doublePointDuration = 10.0f;
-    float doublePointsTime = 0.0f;
     
-    [SerializeField] 
-    float speedUpDuration = 10.0f;
+    float powerupTime = 0.0f; // How long left on the current powerup
+    float doublePointsTime = 0.0f;
     float speedUpTime = 0.0f;
 
 
@@ -132,13 +127,13 @@ public class Fellow : MonoBehaviour
         {
             pelletCollectSound.Play();
             pointsPerPellet = 200;
-            doublePointsTime = doublePointDuration;
+            doublePointsTime = powerupDuration;
         }
         
         if (other.gameObject.CompareTag("SpeedUp"))
         {
             speed = 7.5f;
-            speedUpTime = speedUpDuration;
+            speedUpTime = powerupDuration;
         }
 
     }
