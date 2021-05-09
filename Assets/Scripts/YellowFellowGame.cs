@@ -42,6 +42,8 @@ public class YellowFellowGame : MonoBehaviour
 
     GameObject[] pellets;
     GameObject[] powerups;
+    GameObject[] doublepoints;
+    GameObject[] speedups;
 
     enum GameMode
     {
@@ -65,6 +67,8 @@ public class YellowFellowGame : MonoBehaviour
         StartMainMenu();
         pellets = GameObject.FindGameObjectsWithTag("Pellet");
         powerups = GameObject.FindGameObjectsWithTag("Powerup");
+        doublepoints = GameObject.FindGameObjectsWithTag("DoublePoints");
+        speedups = GameObject.FindGameObjectsWithTag("SpeedUp");
     }
 
     // Update is called once per frame
@@ -87,8 +91,6 @@ public class YellowFellowGame : MonoBehaviour
             ghost3.GetComponent<NavMeshAgent>().speed = 0;
             ghost4.GetComponent<NavMeshAgent>().speed = 0;
             LevelComplete();
-            SceneManager.LoadScene("Cutscene1");
-
         }
         else if (playerObject.lives == 0 && !died)
         {
@@ -208,6 +210,18 @@ public class YellowFellowGame : MonoBehaviour
         {
             Powerup powerupObject = powerup.GetComponent<Powerup>();
             powerupObject.Start();
+        }
+
+        foreach (var speedup in speedups)
+        {
+            SpeedUp speedupObject = speedup.GetComponent<SpeedUp>();
+            speedupObject.Start();
+        }
+        
+        foreach (var doublepoint in doublepoints)
+        {
+            DoublePoints doublepointObject = doublepoint.GetComponent<DoublePoints>();
+            doublepointObject.Start();
         }
     }
 
