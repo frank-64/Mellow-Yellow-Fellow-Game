@@ -1972,8 +1972,6 @@ MonoBehaviour:
   pointsPerPellet: 100
   score: 0
   powerupDuration: 10
-  doublePointDuration: 10
-  speedUpDuration: 10
   name: Frankie
   lives: 3
   heart1: {fileID: 486235310}
@@ -6782,7 +6780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.48244295, y: 0.40050456, z: -0.26358286, w: 0.7330545}
-  m_LocalPosition: {x: -2.78, y: 6.94, z: -1.79}
+  m_LocalPosition: {x: 2.89, y: -8.7, z: 1.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17051,6 +17049,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 124485033}
     m_Modifications:
+    - target: {fileID: -4641157089248759169, guid: 420e9ccf035f7f944acc6a71eade7757, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 734817329772037454, guid: 420e9ccf035f7f944acc6a71eade7757, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -24,7 +24,7 @@ public class LeftTeleporter : MonoBehaviour
         Vector3 position = rightTeleporter.gameObject.transform.position;
         
         // This ensures that the gameObject won't stay in a teleporting
-        // loop as it teleports slighlty to the left of the right teleporter
+        // loop as it teleports slightly to the left of the right teleporter
         // this means it's outside the hit box and doesn't teleport again
         position.x -= 0.5f;
         other.gameObject.transform.position = position;

@@ -16,7 +16,6 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // try catch used to ignore null pointer which is given once the Fellow is killed by ghost
         try
         {
             GetComponent<Text>().text = "Score \n" + player.score;

@@ -94,7 +94,8 @@ public class YellowFellowGame : MonoBehaviour
         }
         else if (playerObject.lives == 0 && !died)
         {
-            deathSound.Play();
+            GlobalVariables.score = playerObject.score;
+            SceneManager.LoadScene("Cutscene1");
             playerObject.SetPelletsEaten(0);
             ghost1.GetComponent<NavMeshAgent>().speed = 0;
             ghost2.GetComponent<NavMeshAgent>().speed = 0;
@@ -105,7 +106,7 @@ public class YellowFellowGame : MonoBehaviour
             died = true;
         }
     }
-    
+
     public void AddHighScore()
     {
         using (FileStream fs = new FileStream(highscoreFile,FileMode.Append, FileAccess.Write))
@@ -141,8 +142,7 @@ public class YellowFellowGame : MonoBehaviour
                 
                 ghost2.gameObject.SetActive(false);
                 ghost3.gameObject.SetActive(false);
-            }
-            else
+            }else
             {
                 ghost1.Reset(true);
                 ghost2.Reset(true);
@@ -308,4 +308,9 @@ public class YellowFellowGame : MonoBehaviour
         gameUI.gameObject.SetActive(false);
         winUI.gameObject.SetActive(true);
     }
+}
+
+public static class GlobalVariables
+{
+    public static int score;
 }

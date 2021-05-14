@@ -2,28 +2,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CutsceneGhost : MonoBehaviour
 {
     private Boolean stop = false;
+
+    [SerializeField] private GameObject score;
     
     [SerializeField]
     AudioSource deathSound;
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 position = gameObject.transform.position;
-        gameObject.transform.position = new Vector3(position.x+5, position.y, position.z);
+        score.GetComponent<Text>().text = "Score: "+ GlobalVariables.score;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (!stop)
-        // {
-        //     Vector3 position = gameObject.transform.position;
-        //     gameObject.transform.position = new Vector3(position.x+0.03f, position.y, position.z);
-        // }
+        if (!stop)
+        {
+            Vector3 position = gameObject.transform.position;
+            gameObject.transform.position = new Vector3(position.x+0.012f, position.y, position.z);
+        }
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -34,5 +37,14 @@ public class CutsceneGhost : MonoBehaviour
             collision.gameObject.SetActive(false);
             stop = true;
         }
+
+        StartCoroutine(cutscene());
+    }
+    
+        
+    IEnumerator cutscene()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("SampleScene");
     }
 }
